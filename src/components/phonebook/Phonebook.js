@@ -32,6 +32,7 @@ export default function Phonebook() {
         throw new Error();
     }
   };
+
   const onSearchSameContact = newName => {
     return contacts.find(({ name }) => name === newName);
   };

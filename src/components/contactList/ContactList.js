@@ -1,17 +1,14 @@
 import { useEffect } from 'react';
 import contactsOperation from '../../redux/phonebook/phonebook-operations';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from '../../redux/phonebook/phonebook-selectors';
+import { getVisibleContacts } from '../../redux/phonebook/phonebook-selectors';
 import s from '../contactList/contactList.module.css';
 import { IoCallSharp, IoAccessibilityOutline, IoCloseCircleOutline } from 'react-icons/io5';
 
 export default function ContactsList() {
-  const getVisibleContacts = (allContacts, filter) => {
-    const normalizeFilter = filter.toLowerCase();
-    return allContacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
-  };
-
-  const contacts = useSelector(state => getVisibleContacts(getContacts(state), getFilter(state)));
+  const contacts = useSelector(state => {
+    return getVisibleContacts(state);
+  });
 
   const dispatch = useDispatch();
 
