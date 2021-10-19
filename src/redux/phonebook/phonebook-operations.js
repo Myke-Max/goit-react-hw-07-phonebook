@@ -1,7 +1,7 @@
 import contactsControl from '../../service-API';
 import actions from './phonebook-actions';
 
-export const getContacts = () => dispatch => {
+const getContacts = () => dispatch => {
   dispatch(actions.getContactsRequest());
 
   contactsControl
@@ -10,7 +10,7 @@ export const getContacts = () => dispatch => {
     .catch(error => dispatch(actions.getContactsError(error.message)));
 };
 
-export const addContacts =
+const addContacts =
   ({ name, number }) =>
   dispatch => {
     dispatch(actions.addContactsRequest());
@@ -20,7 +20,7 @@ export const addContacts =
       .catch(error => dispatch(actions.addContactsError(error.message)));
   };
 
-export const deleteContact = id => dispatch => {
+const deleteContact = id => dispatch => {
   actions.deleteContactsRequest();
 
   contactsControl
@@ -28,3 +28,5 @@ export const deleteContact = id => dispatch => {
     .then(data => actions.deleteContactsSuccess(data))
     .catch(error => dispatch(actions.deleteContactsError(error.message)));
 };
+
+export default { getContacts, addContacts, deleteContact };

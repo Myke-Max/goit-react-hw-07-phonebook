@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { IoCallSharp, IoAccessibilityOutline } from 'react-icons/io5';
 import { getContacts } from '../../redux/phonebook/phonebook-selectors';
 import phonebookActions from '../../redux/phonebook/phonebook-actions';
+import contactsControl from '../../redux/phonebook/phonebook-operations';
 
 export default function Phonebook() {
   const [name, setName] = useState('');
@@ -42,7 +43,7 @@ export default function Phonebook() {
       showError();
       return;
     }
-    dispatch(phonebookActions.addContacts({ name, number }));
+    dispatch(contactsControl.addContacts({ name, number }));
     onResetForm();
     showSuccess();
   };

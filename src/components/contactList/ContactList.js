@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import * as contactsOperation from '../../redux/phonebook/phonebook-operations';
+import contactsOperation from '../../redux/phonebook/phonebook-operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from '../../redux/phonebook/phonebook-selectors';
 import s from '../contactList/contactList.module.css';
 import { IoCallSharp, IoAccessibilityOutline, IoCloseCircleOutline } from 'react-icons/io5';
-import phonebookActions from '../../redux/phonebook/phonebook-actions';
 
 export default function ContactsList() {
   const getVisibleContacts = (allContacts, filter) => {
@@ -16,7 +15,7 @@ export default function ContactsList() {
 
   const dispatch = useDispatch();
 
-  const deleteContact = id => dispatch(phonebookActions.deleteContact(id));
+  const deleteContact = id => dispatch(contactsOperation.deleteContact(id));
 
   useEffect(() => {
     dispatch(contactsOperation.getContacts());
