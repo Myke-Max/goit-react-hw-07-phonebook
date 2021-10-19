@@ -1,9 +1,3 @@
 {
-  "contacts": [
-    {
-      "name": "Rosie Simpson",
-      "number": "94375835354",
-      "id": 1
-    }
-  ]
+  "contacts": []
 }

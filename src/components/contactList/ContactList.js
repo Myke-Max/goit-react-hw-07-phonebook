@@ -20,31 +20,32 @@ export default function ContactsList() {
 
   return (
     <ul className={s.contact__list}>
-      {contacts.map(({ id, name, number }) => {
-        return (
-          <li className={s.contact__item} key={id}>
-            <p className={s.contact__name}>
-              <span className={s.contact__icon}>
-                <IoAccessibilityOutline />
-              </span>
-              {name}
-            </p>
+      {contacts &&
+        contacts.map(({ id, name, number }) => {
+          return (
+            <li className={s.contact__item} key={id}>
+              <p className={s.contact__name}>
+                <span className={s.contact__icon}>
+                  <IoAccessibilityOutline />
+                </span>
+                {name}
+              </p>
 
-            <p>
-              <span className={s.contact__icon}>
-                <IoCallSharp />
-              </span>
-              {number}
-            </p>
-            <button className={s.delete__button} onClick={() => deleteContact(id)}>
-              delete
-              <span>
-                <IoCloseCircleOutline />
-              </span>
-            </button>
-          </li>
-        );
-      })}
+              <p>
+                <span className={s.contact__icon}>
+                  <IoCallSharp />
+                </span>
+                {number}
+              </p>
+              <button className={s.delete__button} onClick={() => deleteContact(id)}>
+                delete
+                <span>
+                  <IoCloseCircleOutline />
+                </span>
+              </button>
+            </li>
+          );
+        })}
     </ul>
   );
 }

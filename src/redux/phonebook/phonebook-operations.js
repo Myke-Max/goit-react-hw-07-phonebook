@@ -21,11 +21,11 @@ const addContacts =
   };
 
 const deleteContact = id => dispatch => {
-  actions.deleteContactsRequest();
+  dispatch(actions.deleteContactsRequest());
 
   contactsControl
     .deleteContact(id)
-    .then(data => actions.deleteContactsSuccess(data))
+    .then(() => dispatch(actions.deleteContactsSuccess(id)))
     .catch(error => dispatch(actions.deleteContactsError(error.message)));
 };
 

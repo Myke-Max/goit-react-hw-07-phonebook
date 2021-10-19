@@ -10,7 +10,7 @@ const addContacts = addContact => {
 };
 
 const deleteContact = id => {
-  return axios.delete(`/contacts/${id}`);
+  return axios.delete(`/contacts/${id}`).then(({ data }) => data);
 };
 
 const contactsControl = { getContacts, addContacts, deleteContact };
